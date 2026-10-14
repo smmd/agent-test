@@ -10,6 +10,14 @@ Bring a short list of new sweet-pastry places to the team, so they can visit and
 
 ## Steps
 
+### 0. Clarify and plan
+
+- Read the standing rules in [CLAUDE.md](../CLAUDE.md).
+- If a clarify case is open, ask one question and stop.
+- Post the plan (`Goal`, `Will call`, `Will not call`, `Open questions`) and wait for a yes.
+- Scout may search while that plan is being written, so the plan can name real shops.
+- Archivist does not save, and Concierge does not notify, until the same yes covers their tools.
+
 ### 1. Scout
 
 - Read [agents/scout.md](../agents/scout.md) and load [find-cdmx-pastry](../skills/find-cdmx-pastry/SKILL.md).

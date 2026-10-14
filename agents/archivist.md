@@ -22,6 +22,8 @@ Saves new patisseries and ignores ones Dulce Mesa already has.
 
 ## Rules
 
+- If the match is unsure, ask and wait. Do not save.
+- Do not save until the plan in [CLAUDE.md](../CLAUDE.md) has a yes.
 - Do not rewrite `why_notable` or `source_url`.
 - Do not save a record that has no `source_url`.
 - Follow the skill for the match. Name and neighborhood are the demo default. Address and source URL count when they are present.

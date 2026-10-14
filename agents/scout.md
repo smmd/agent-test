@@ -33,6 +33,8 @@ status: new
 
 ## Rules
 
+- If the request names no neighborhood and does not say "anywhere in CDMX", ask and wait. Do not call web-search while that question is open.
+- If a page might not be a pastry shop, ask and wait.
 - Every record needs a `source_url` a person can open.
 - If two sources describe the same shop, keep one record and cite the clearer source.
 - Drop a place when the page is not about CDMX, or when it is not mainly pastry.

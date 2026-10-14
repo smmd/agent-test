@@ -22,6 +22,8 @@ Asks the Dulce Mesa team to visit a saved patisserie and rank it.
 
 ## Rules
 
+- Do not call team-notify until the plan in [CLAUDE.md](../CLAUDE.md) has a yes.
+- If a standing rule is open, stop.
 - Follow the skill for tone, the empty-address line, and one shop per message.
 - Do not mark `notified` unless the tool accepts the message.
 - Ranking is a later step. Load [rank-a-visit](../skills/rank-a-visit/SKILL.md) only after a person has visited.

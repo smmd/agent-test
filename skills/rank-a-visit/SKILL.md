@@ -16,6 +16,11 @@ Teaches a later ranking step how to turn a visit into a score. Discover-patisser
 
 Someone on the team has visited a shop and is ready to rank it.
 
+## Stop
+
+- If the reply has no number from 1 to 5, ask and wait. Do not invent a score.
+- Do not write the rank until the plan in [CLAUDE.md](../../CLAUDE.md) has a yes.
+
 ## Score four things, each from 1 to 5
 
 | Score | Question |

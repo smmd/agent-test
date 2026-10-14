@@ -11,21 +11,56 @@ The work is split into four layers:
 | Skills | `skills/` | How that agent does the craft |
 | Tools | `tools/` | The external action the skill guides. Nothing here is wired up yet |
 
+## Standing rules
+
+These two rules come before the workflow. Every agent follows them.
+
+### Ask, then wait
+
+Ask one short question and stop when any of these are true:
+
+- The request names no neighborhood and does not say "anywhere in CDMX".
+- A page might not be a pastry shop.
+- Archivist is unsure whether two mentions are the same shop.
+- A rank reply has no number from 1 to 5.
+- The next step would save, notify, or store a rank, and nobody has confirmed the plan.
+
+Leave the unknown field empty. Do not guess an address, a neighborhood, or a rank.
+
+### Plan before build
+
+Build means a write: saving a shop, sending the team note, or storing a rank. Search may happen while planning. A write may not.
+
+Before any write, post this plan and wait for a yes:
+
+```text
+Goal:
+Will call:
+Will not call:
+Open questions:
+```
+
+Archivist, Concierge, and the later ranking step refuse to write until that plan has a yes. If the yes changes the goal, write the plan again.
+
+This is the insurance policy: saves in `pastry-store` and sends in `team-notify` stay closed until the plan is confirmed.
+
 ## Main workflow
 
 When someone asks to find new patisseries, follow [workflows/discover-patisseries.md](workflows/discover-patisseries.md).
 
 ```text
+(first)     clarify, write the plan, wait for a yes
 Scout       loads find-cdmx-pastry       calls web-search
 Archivist   loads match-existing-shop    calls pastry-store
 Concierge   loads write-visit-brief      calls team-notify
 (later)     loads rank-a-visit           writes the score
 ```
 
-1. **Scout** looks on the public web for patisseries in CDMX.
-2. **Archivist** keeps the ones that are not already stored.
-3. **Concierge** asks the team to visit and rank each saved place.
-4. **Rank a visit** is the next loop. No agent owns it yet.
+1. **Clarify and plan.** Ask if a standing rule is open. Post the plan. Wait for a yes before any write.
+2. **Scout** looks on the public web for patisseries in CDMX.
+3. **Archivist** keeps the ones that are not already stored.
+4. **Concierge** asks the team to visit and rank each saved place.
+5. **Rank a visit** is the next loop. No agent owns it yet. It still waits for a yes before it writes a score.
 
 ## Rules
 
