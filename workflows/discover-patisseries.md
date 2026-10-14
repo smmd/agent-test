@@ -12,21 +12,21 @@ Bring a short list of new sweet-pastry places to the team, so they can visit and
 
 ### 1. Scout
 
-- Read [agents/scout.md](../agents/scout.md).
+- Read [agents/scout.md](../agents/scout.md) and load [find-cdmx-pastry](../skills/find-cdmx-pastry/SKILL.md).
 - Search for patisseries in CDMX that look new or newly talked about.
 - Return 3 to 5 candidates as shared records with `status: new`.
 - If the search returns nothing useful, stop. Do not call Archivist or Concierge.
 
 ### 2. Archivist
 
-- Read [agents/archivist.md](../agents/archivist.md).
-- For each candidate, check the store for the same name and neighborhood.
+- Read [agents/archivist.md](../agents/archivist.md) and load [match-existing-shop](../skills/match-existing-shop/SKILL.md).
+- For each candidate, check the store with that skill's match.
 - Save only the new ones and set `status: saved`.
 - If every candidate is already stored, stop. Do not call Concierge.
 
 ### 3. Concierge
 
-- Read [agents/concierge.md](../agents/concierge.md).
+- Read [agents/concierge.md](../agents/concierge.md) and load [write-visit-brief](../skills/write-visit-brief/SKILL.md).
 - Send one notification per saved record.
 - Set `status: notified` after the note is accepted.
 - The message asks the team to visit and rank the place from 1 to 5.
@@ -44,6 +44,6 @@ Bring a short list of new sweet-pastry places to the team, so they can visit and
 
 ## TODO — next stage
 
-- Accept a reply from the team (visited / ranked / skip) and update the record.
+- Accept a reply from the team and score it with [rank-a-visit](../skills/rank-a-visit/SKILL.md).
 - Publish ranked places into a recommendation list.
 - Schedule this workflow (for example, once a week) instead of running it by hand.

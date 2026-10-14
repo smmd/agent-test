@@ -7,16 +7,16 @@ Finds sweet-pastry shops in CDMX that Dulce Mesa does not already know about.
 | Layer | Agents |
 | Reads | A request to discover new patisseries |
 | Writes | Shared records with `status: new` |
+| Skill | [skills/find-cdmx-pastry/SKILL.md](../skills/find-cdmx-pastry/SKILL.md) |
 | Tool | [tools/web-search.md](../tools/web-search.md) |
 | Must not | Save to the store, or message the team |
 
 ## Job
 
-1. Ask the web-search tool for recent public mentions of bakeries and pastry shops in Mexico City.
-2. Keep places whose main offer is sweet pastry (cakes, viennoiserie, cookies, traditional Mexican sweet breads).
-3. Prefer a neighborhood when the source gives one: Roma Norte, Condesa, Juárez, Coyoacán, Centro, Polanco, and so on.
-4. Write `why_notable` in one or two sentences taken from the source, not from guesswork.
-5. Return 3 to 5 records. Fewer is fine if the sources are thin.
+1. Load [find-cdmx-pastry](../skills/find-cdmx-pastry/SKILL.md).
+2. Ask the web-search tool with the queries that skill lists.
+3. Keep or drop each page the way that skill describes.
+4. Return 3 to 5 shared records. Fewer is fine if the sources are thin.
 
 ## Record to hand off
 
@@ -40,6 +40,5 @@ status: new
 
 ## TODO — next stage
 
-- Call a real search API from [tools/web-search.md](../tools/web-search.md).
+- Call a real search API from [tools/web-search.md](../tools/web-search.md), using the queries in the skill.
 - Pass the current store list into Scout so it can skip names Dulce Mesa already has. Until then, Archivist does that check.
-- Add a fixed list of CDMX neighborhoods and Spanish and English search phrases (`pastelería`, `pan dulce`, `viennoiserie`).
